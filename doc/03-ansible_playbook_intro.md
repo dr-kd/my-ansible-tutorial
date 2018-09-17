@@ -26,13 +26,11 @@ To demonstrate that unsuccessful exit status causes verbosity we can replace the
 
 Note the use of the `shell` module rather than the `command` module.  You'll want this whenever you need to use pipes, or other shell constructs.
 
-This time running `ansible-playbook main.yml` will indicate the commands "failed" but their output will not be visible.
+This time running `ansible-playbook main.yml` will indicate the commands "failed" and their output will be visible.
+
+## A note on the output of running ansible_playbook
 
 You can make the ansible output more readable by placing the following into ansible.cfg
 
     stdout_callback=minimal
-
-
-
-
 
