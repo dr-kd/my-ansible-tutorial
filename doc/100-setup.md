@@ -2,6 +2,8 @@
 
 This mini tutorial is written for me from my current point of view.  That is, I have some limited experience working with other people's ansible playbooks, but I haven't built my own from scratch.
 
+If you find there are things you don't understand in this tutorial, it means that I have assumed knowledge that you don't have.  At a minimum, you will need to have basic linux skills, know what ssh is, and know what YAML is.
+
 Ansible is generally for multi-machine interactions.  So we'll start by setting up a three machine vagrant cluster.
 
 ## Vagrant
