@@ -1,0 +1,7 @@
+---
+  - name: install fortune-mod
+    become: yes
+    apt:
+      name: fortune-mod
+      state: present
+

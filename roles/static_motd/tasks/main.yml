@@ -1,0 +1,8 @@
+---
+  - name: check motd file existence
+    shell: grep -q {{ ansible_host }} && echo changed || echo unchanged
+    register: static_motd
+  - name: create motd
+    become: yes
+    shell: echo Hi there, welcome to {{ ansible_host }} > /etc/motd
+    when: static_motd.stdout == 'unchanged'

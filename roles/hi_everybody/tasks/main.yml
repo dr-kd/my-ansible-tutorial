@@ -1,0 +1,4 @@
+---
+- name: hi!
+  debug:
+    msg: I'm not saying your computer is stupid but

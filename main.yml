@@ -1,31 +1,15 @@
 ---
 - hosts: mycluster
-  name: run on every machine
-  tasks:
-  - name: say hi
-    shell: echo hi there {{ ansible_host }}
+  name: just a test to say hi
+  roles:
+    - say_hello
 - hosts: main_box
   name: install fortune and update motd
-  tasks:
-  - name: install fortune-mod
-    become: yes
-    apt:
-      name: fortune-mod
-      state: present
-  - name: check motd not already updated
-    stat: path=/etc/profile.d/motd.sh
-    register: motd
-  - name: update motd
-    become: yes
-    shell: echo /usr/games/fortune > /etc/profile.d/motd.sh
-    when: motd.stat.exists == False
+  roles:
+    - install_fortune
+    - dynamic_motd
 - hosts: other_boxes
   name: static motd on other boxes
-  tasks:
-  - name: check motd file existence
-    shell: grep -q {{ ansible_host }} && echo changed || echo unchanged
-    register: static_motd
-  - name: create motd
-    become: yes
-    shell: echo Hi there, welcome to {{ ansible_host }} > /etc/motd
-    when: static_motd.stdout == 'unchanged'
+  roles:
+    - static_motd
+
