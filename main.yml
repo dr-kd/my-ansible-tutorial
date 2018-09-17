@@ -1,0 +1,5 @@
+---
+- hosts: mycluster
+  tasks:
+  - name: say hi
+    shell: echo hi there {{ ansible_host }}
