@@ -1,0 +1,10 @@
+[mycluster:children]
+main_box
+other_boxes
+
+[main_box]
+box1
+
+[other_boxes]
+box2
+box3
